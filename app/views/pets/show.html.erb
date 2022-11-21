@@ -1,0 +1,12 @@
+ <div>
+    <%= @pet.name %>
+    <%= @pet.price %>
+    <%= @pet.age %>
+    <%= @pet.size %>
+    <%= @pet.description %>
+    <%= @pet.species %>
+</div>
+
+<%= link_to "Back to pets", pets_path %>
+<%= link_to "Edit pet", edit_pet_path(@pet) %>
+<div><%= link_to "Delete Pet", @pet, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></div>

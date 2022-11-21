@@ -1,0 +1,12 @@
+<% @pets.each do |pet| %>
+  <%= link_to pet_path(pet) do %>
+    <%= pet.name %>
+    <%= pet.price %>
+    <%= pet.age %>
+    <%= pet.species %>
+    <%= pet.size%>
+    <%= pet.description %>
+  <% end %>
+<% end %>
+
+<%= link_to "Create a pet", new_pet_path %>
