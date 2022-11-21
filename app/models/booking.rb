@@ -1,3 +1,4 @@
 class Booking < ApplicationRecord
-  has_many :pets
+  belongs_to :pet
+  belongs_to :user
 end
