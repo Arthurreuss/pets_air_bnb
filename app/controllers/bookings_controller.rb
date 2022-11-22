@@ -7,16 +7,18 @@ class BookingsController < ApplicationController
   # end
 
   def create
-    # raise
     # @movie = Movie.find(params[:movie_id])
+    id = params[:pet_id]
+    @pet = Pet.find(id)
     @booking = Booking.new(booking_params)
-    @pet = Pet.find(params[:pet_id])
     @booking.pet = @pet
+    @booking.user = current_user
+    @booking.total_price = @pet.price * (@booking.end_date - @booking.start_date)
 
     if @booking.save
-      redirect_to pet_path(@pet)
+      redirect_to dashboard_path
     else
-      render pet_bookings_path, status: :unprocessable_entity
+      render "pets/show", status: :unprocessable_entity
     end
   end
 
@@ -24,22 +26,22 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
     @booking.destroy
 
-    redirect_to pet_path(@booking.pet)
+    redirect_to dashboard_path
   end
 
-  def update
-    @booking = Booking.find(params[:id])
+  # def update
+  #   @booking = Booking.find(params[:id])
 
-    if @booking.save
-      redirect_to pet_path(@pet)
-    else
-      render booking_path, status: :unprocessable_entity
-    end
-  end
+  #   if @booking.save
+  #     redirect_to pet_path(@pet)
+  #   else
+  #     render booking_path, status: :unprocessable_entity
+  #   end
+  # end
 
   private
 
   def booking_params
-    params.require(:booking).permit(:pet_id, :start_date, :end_date, :total_price, :user_id)
+    params.require(:booking).permit(:start_date, :end_date, :pet_id)
   end
 end

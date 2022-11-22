@@ -1,1 +1,5 @@
-<%= @user %>
+<% @user %>
+<% @bookings.each do |b| #of the user %>
+<%= b %>
+<div><%= link_to "Delete Booking", booking_path(b), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></div>
+<% end %>
