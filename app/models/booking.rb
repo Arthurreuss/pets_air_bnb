@@ -2,11 +2,12 @@ class Booking < ApplicationRecord
   belongs_to :pet
   belongs_to :user
 
-  
-  # validates :start_date, :end_date, presence: true
-  validate :validate_start_date
-  # validates_comparison_of :start_date, less_than: :end_date, greater_than: { Date.today }
 
+  validates :start_date, :end_date, presence: true
+  # validates_comparison_of :start_date, less_than: :end_date, greater_than_or_equal_to: -> { Date.today }
+  
+  validate :validate_start_date
+ 
   private
 
   def validate_start_date
@@ -16,4 +17,5 @@ class Booking < ApplicationRecord
       errors.add("Start date must be valid")
     end
   end
+
 end
