@@ -14,9 +14,10 @@ class Booking < ApplicationRecord
   def validate_start_date
     if self.start_date < self.end_date && self.start_date >= Date.today
       return true
-    else
-      errors.add("Start date must be valid")
+    elsif self.start_date < Date.today
+      self.errors.add(:start_date, "Start date must be valid")
+    elsif self.start_date > self.end_date
+      self.errors.add(:end_date, "End date must be valid")
     end
   end
-
 end

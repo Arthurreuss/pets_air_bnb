@@ -4,9 +4,11 @@
     <%= f.input :name %>
     <%= f.input :price %>
     <%= f.input :age %>
-    <%= f.input :species %>
+    <%= f.input :species, collection: ['Mammal', 'Reptile', 'Bird', 'Fish', 'Amphibian', 'Insect'], input_html: {data: {controller: "tom_select"}} %>
     <%= f.input :size %>
     <%= f.input :description %>
+    <%= f.input :address %>
+
     <%= f.submit %>
 <% end %>
 
