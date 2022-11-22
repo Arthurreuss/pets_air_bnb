@@ -12,6 +12,7 @@ gem 'bootstrap-datepicker-rails'
 
 gem 'jquery-rails'
 
+gem "cloudinary"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
