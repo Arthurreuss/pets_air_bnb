@@ -4,9 +4,10 @@
     <%= f.input :name %>
     <%= f.input :price %>
     <%= f.input :age %>
-    <%= f.input :species %>
+    <%= f.input :species, collection: ['Mammal', 'Reptile', 'Bird', 'Fish', 'Amphibian', 'Insect']   %>
     <%= f.input :size %>
     <%= f.input :description %>
+    <%#= f.input :photo, as: :file %>
     <%= f.submit %>
 <% end %>
 
