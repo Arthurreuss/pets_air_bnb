@@ -1,12 +1,21 @@
-<% @pets.each do |pet| %>
-  <%= link_to pet_path(pet) do %>
-    <%= pet.name %>
-    <%= pet.price %>
-    <%= pet.age %>
-    <%= pet.species %>
-    <%= pet.size%>
-    <%= pet.description %>
+<h1 class="text-center">Animal Kingdom</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+<div class="btn btn-lg">
+<%= link_to "Create a pet", new_pet_path %>
+</div>
+ </div>
+    </div>
+</div>
+<div class="cards">
+  <% @pets.each do |pet| %>
+    <div class="card border rounded-2 m-2 border-5 middle-box">
+      <div class="card border rounded-2 border-5 m-1 inside-box">
+    <%= link_to pet_path(pet) do %>
+      <%= pet.name %>
+      </div>
+    </div>
   <% end %>
 <% end %>
-
-<%= link_to "Create a pet", new_pet_path %>
+</div>
