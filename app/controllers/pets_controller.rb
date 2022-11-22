@@ -1,4 +1,5 @@
 class PetsController < ApplicationController
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @pets = Pet.all
@@ -17,7 +18,7 @@ class PetsController < ApplicationController
     @pet = Pet.new(pet_params)
     respond_to do |format|
       if @pet.save
-        format.html { redirect_to pet_path(@pet), notice: "Blabla" }
+        format.html { redirect_to pet_path(@pet), notice: "Successfully created Pet" }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
