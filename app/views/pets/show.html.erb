@@ -1,3 +1,5 @@
+<%= render "shared/navbar" %>
+<div></div>
  <div>
     <%= @pet.name %>
     <%= @pet.price %>
@@ -11,15 +13,29 @@
 <%= link_to "Edit pet", edit_pet_path(@pet) %>
 <div><%= link_to "Delete Pet", @pet, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></div>
 
-<%= simple_form_for [@pet, @booking] do |f| %>
-  <%#= f.error_notification %>
-  <%#= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<div class='container d-flex'>
+  <div class="w-75">
+    <div class="img_card text-center me-2 text-center align-items-center">
+      <img src="https://media.wired.co.uk/photos/6307d4a30bb794e4e22df0fc/5:7/w_684,h_958,c_limit/House-of-the-Dragon-CGI-Culture.jpg" alt="Dragon" class="img mt-3">
+    </div>
+    <div class="text-center">
+      <p class="text p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur ea explicabo rem assumenda numquam hic? Possimus aliquam corporis quo, totam placeat doloribus mollitia sit vel, quibusdam suscipit laborum ex nisi.</p>
+    </div>
+  </div>
 
-  <div class="form-inputs">
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
+  <div class="form_card w-50 p-4 border border-3 rounded-4">
+    <%= simple_form_for [@pet, @booking] do |f| %>
+      <%#= f.error_notification %>
+      <%#= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <div class="form-inputs p-2 mb-2">
+      <%= f.input :start_date %>
+      <%= f.input :end_date %>
+    </div>
+
+    <div class="form-actions text-center ">
+      <%= f.button :submit, "Book Now", class: 'btn p-2 border border-2 rounded-3 ' %>
+    </div>
+    <% end %>
+
   </div>
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+</div>
