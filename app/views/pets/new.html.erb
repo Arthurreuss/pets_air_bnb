@@ -4,10 +4,12 @@
     <%= f.input :name %>
     <%= f.input :price %>
     <%= f.input :age %>
-    <%= f.input :species, collection: ['Mammal', 'Reptile', 'Bird', 'Fish', 'Amphibian', 'Insect']   %>
+    <%= f.input :species, collection: ['Mammal', 'Reptile', 'Bird', 'Fish', 'Amphibian', 'Insect'], input_html: {data: {controller: "tom_select"}} %>
     <%= f.input :size %>
     <%= f.input :description %>
-    <%#= f.input :photo, as: :file %>
+    <%= f.input :address %>
+    <%= f.input :photo, as: :file %>
+
     <%= f.submit %>
 <% end %>
 

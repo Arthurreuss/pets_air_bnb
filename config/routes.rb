@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get "dashboard", to: "pages#dashboard", as: "dashboard"
-  # get "dashboard/:id", to: "pages#show", as: "booking"
+
   # Defines the root path route ("/")
   # root "articles#index"
   # get "/index", to: "pets#index"
@@ -15,9 +15,12 @@ Rails.application.routes.draw do
 
   # post "/bookings", to: "bookings#create"
   # delete "/bookings/:id", to: "bookings#destroy"
-  resources :bookings, only: %i[destroy update]
+  resources :bookings, only: %i[destroy update] do
+    resources :reviews, only: %i[new create]
+  end
   resources :pets do
     resources :bookings, only: %i[create]
   end
+
   # resources :users, only: %i[create update destroy]
 end
