@@ -7,7 +7,7 @@ class Pet < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :price, :age, :size, presence: true
   validates :species, inclusion: { in: ['Mammal', 'Reptile', 'Bird', 'Fish', 'Amphibian', 'Insect'] }
-  
+  validates :address, presence: true
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
 end

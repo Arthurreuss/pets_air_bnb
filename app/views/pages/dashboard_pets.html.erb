@@ -1,5 +1,12 @@
 <% @pet %>
-<% @bookings.each do |b|%>
-<%= b %>
+<% @bookings.each do |booking|%>
+  <% booking.each do |b| %>
+  <div>
+    <%= b.id %>
+    <%= link_to 'Accept', accept_path(:booking_id => b.id) %>
+    <%= link_to 'Decline', decline_path(:booking_id => b.id) %>
+  </div>
+  <% end %>
 <% end %>
+
 <%= link_to "Back to homepage", pets_path %>
