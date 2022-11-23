@@ -1,41 +1,57 @@
-<%= render "shared/navbar" %>
-<div></div>
- <div>
-    <%= @pet.name %>
-    <%= @pet.price %>
-    <%= @pet.age %>
-    <%= @pet.size %>
-    <%= @pet.description %>
-    <%= @pet.species %>
-</div>
 
-<%= link_to "Back to pets", pets_path %>
-<%= link_to "Edit pet", edit_pet_path(@pet) %>
-<div><%= link_to "Delete Pet", @pet, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %></div>
+<div class="background-show">
+  <%= link_to pets_path do %>
+    <i class="fa-back fa-solid fa-left-long fa-xl m-3 p-3"></i>
+  <% end %>
 
-<div class='container d-flex'>
-  <div class="w-75">
-    <div class="img_card text-center me-2 text-center align-items-center">
-      <img src="https://media.wired.co.uk/photos/6307d4a30bb794e4e22df0fc/5:7/w_684,h_958,c_limit/House-of-the-Dragon-CGI-Culture.jpg" alt="Dragon" class="img mt-3">
+  <div class='container d-flex justify-content-between'>
+    <div class="img_card me-3">
+      <div class="content">
+        <div class="front text-center align-items-center border-0 rounded" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @pet.photo.key, crop: :fit %>')">
+          <%# <div class="show_front border-0 rounded" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('= cl_image_path @pet.photo.key, crop: :fit')"></div> %>
+        </div>
+
+        <div class=" back text-center align-items-center">
+          <div class="back_text text-center align-items-center w-100 m-auto">
+            <p class="show_text p-3"><%= @pet.name %> is a <%= @pet.species %></p>
+            <p class="show_text p-3">With an age of: <%= @pet.age %></p>
+            <p class="show_text p-3"><%= @pet.description %></p>
+            <p class="show_text p-3">Price per day: <%= @pet.price %></p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="text-center">
-      <p class="text p-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur ea explicabo rem assumenda numquam hic? Possimus aliquam corporis quo, totam placeat doloribus mollitia sit vel, quibusdam suscipit laborum ex nisi.</p>
+
+    <div class="form_card w-50 p-4 border border-3 rounded-4">
+      <%= simple_form_for [@pet, @booking] do |f| %>
+        <%#= f.error_notification %>
+        <%#= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+      <div class="form-inputs p-2 mb-2">
+        <%= f.input :start_date %>
+        <%= f.input :end_date %>
+      </div>
+
+      <div class="form-actions text-center ">
+        <%= f.button :submit, "Book Now", class: 'btn p-2 border border-2 rounded-3 ' %>
+      </div>
+      <% end %>
     </div>
   </div>
 
-  <div class="form_card w-50 p-4 border border-3 rounded-4">
-    <%= simple_form_for [@pet, @booking] do |f| %>
-      <%#= f.error_notification %>
-      <%#= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-    <div class="form-inputs p-2 mb-2">
-      <%= f.input :start_date %>
-      <%= f.input :end_date %>
+  <div>
+    <div>
+      <%= link_to @pet, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+        <div class="ms-3 p-3 delete-button"><i class="fa-solid fa-trash"></i></div>
+      <% end %>
     </div>
 
-    <div class="form-actions text-center ">
-      <%= f.button :submit, "Book Now", class: 'btn p-2 border border-2 rounded-3 ' %>
-    </div>
-    <% end %>
-
+      <%= link_to edit_pet_path(@pet) do%>
+        <p>Edit</p>
+      <% end %>
   </div>
 </div>
+ <div style="width: 100%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
