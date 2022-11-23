@@ -10,6 +10,12 @@ class PagesController < ApplicationController
     @bookings = @user.bookings
   end
 
+  def dashboard_pets
+    @user = current_user
+    @pets = @user.pets
+    @bookings = @pets.map { |pet| pet.bookings }
+  end
+
   # def show
   #   @booking = Booking.find(params[:id])
   # end

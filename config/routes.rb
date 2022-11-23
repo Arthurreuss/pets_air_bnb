@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get "dashboard", to: "pages#dashboard", as: "dashboard"
+  get "dashboard_pets", to: "pages#dashboard_pets", as: "dashboard_pets"
 
   # Defines the root path route ("/")
   # root "articles#index"
@@ -21,6 +22,8 @@ Rails.application.routes.draw do
   resources :pets do
     resources :bookings, only: %i[create]
   end
+
+
 
   # resources :users, only: %i[create update destroy]
 end
