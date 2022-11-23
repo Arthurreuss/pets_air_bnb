@@ -1,6 +1,5 @@
-<div><%= link_to "Create new", new_pet_path %>
-</div>
 <div class="background-index">
+<div class="btn"><%= link_to "Create new", new_pet_path %></div>
   <div class="cards">
     <% @pets.each do |pet| %>
       <%= link_to pet_path(pet) do %>
