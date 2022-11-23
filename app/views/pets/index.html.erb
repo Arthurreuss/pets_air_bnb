@@ -12,8 +12,8 @@
   <% @pets.each do |pet| %>
     <div class="card border rounded-2 m-2 border-5 middle-box">
       <div class="card border rounded-2 border-5 m-1 inside-box">
-    <%= link_to pet_path(pet) do %>
-      <%= pet.name %>
+        <%= link_to pet_path(pet) do %>
+        <%= pet.name %>
       </div>
     </div>
   <% end %>
