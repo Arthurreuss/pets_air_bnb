@@ -8,6 +8,11 @@ class PetsController < ApplicationController
   def show
     @pet = Pet.find(params[:id])
     @booking = Booking.new
+    @markers =
+      [{
+        lat: @pet.latitude,
+        lng: @pet.longitude
+      }]
   end
 
   def new
@@ -46,6 +51,6 @@ class PetsController < ApplicationController
   private
 
   def pet_params
-    params.require(:pet).permit(:name, :price, :age, :species, :size, :description)
+    params.require(:pet).permit(:name, :price, :age, :species, :size, :description, :address, :photo)
   end
 end
