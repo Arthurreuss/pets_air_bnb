@@ -1,33 +1,66 @@
 // Specific CSS for your home-page
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
+  justify-content: space-evenly;
+
+}
+.big-title{
+  text-align: center;
+  font-size: 175px;
+  margin: 50px;
+}
+.card{
+      // width: clamp(200px, 61vh, 18vw);
+      // height: clamp(280px, 85vh, 25.2vw);
+    @media screen and (min-width: 600px) {
+      // width: 61vh;
+      // height: 85vh;
+      // max-width: 500px;
+      // max-height: 700px;
+      width: clamp(12.9vw, 61vh, 18vw);
+      height: clamp(18vw, 85vh, 25.2vw);
+    }
 }
 
 .middle-box {
 width: 270px;
 height: 371px;
+text-decoration: none;
 }
+
 .inside-box {
   width: 255px;
   height: 360px;
+  text-align: center;
+
+}
+.cards a{
+  text-decoration: none;
+  color: black;
+}
+.btn a{
+  text-decoration: none;
 }
 .btn{
-  color: #fff;
-  background: transparent;
+  background-color: rgb(255, 185, 185);
+  display: flex;
+  flex-direction: column;
+  align-items: center;  text-align: center;
   font-family: 'Amaranth', sans-serif;
   font-size: 22px;
-  font-weight: 400;
+  font-weight: 400px;
   font-style: italic;
   text-transform: capitalize;
+  margin: 30px;
   padding: 3px 15px;
   border-radius: 0;
-  border: 2px solid rgba(255,255,255,0.2);
+  border: 2px solid rgb(255, 255, 255);
   box-shadow: 4px 4px 0 rgba(255, 255, 255, 0.3), 8px 8px 0 rgba(255, 255, 255, 0.2);
-  position: relative;
   z-index: 1;
   transition: all 0.3s ease 0.1s;
+  width: fit-content;
 }
 .btn:hover{
   color: rgb(255, 199, 199);
@@ -41,7 +74,7 @@ height: 371px;
 .btn span:before,
 .btn span:after{
   content: '';
-  background-color: rgb(254, 130, 206);
+  background-color: rgb(255, 32, 169);
   width: 50%;
   height: 2px;
   opacity: 0;
@@ -79,4 +112,84 @@ height: 371px;
 .btn:hover span:after{ top: 0; }
 @media only screen and (max-width: 767px){
   .btn{ margin-bottom: 20px; }
+}
+  .background-index {
+    background: linear-gradient(-75deg, #686a47, #278927, #07d9c1, #ff0088);
+    background-size: 400% 400%;
+    animation: gradient 30s ease infinite;
+    min-height: 100vh;
+  }
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  @keyframes lights {
+    0% {
+      color: hsl(230, 40%, 80%);
+      text-shadow:
+        0 0 1em hsla(320, 100%, 50%, 0.2),
+        0 0 0.125em hsla(320, 100%, 60%, 0.3),
+        -1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+        1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+    }
+
+    30% {
+      color: hsl(230, 80%, 90%);
+      text-shadow:
+        0 0 1em hsla(320, 100%, 50%, 0.5),
+        0 0 0.125em hsla(320, 100%, 60%, 0.5),
+        -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+        0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+    }
+
+    40% {
+      color: hsl(230, 100%, 95%);
+      text-shadow:
+        0 0 1em hsla(320, 100%, 50%, 0.5),
+        0 0 0.125em hsla(320, 100%, 90%, 0.5),
+        -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2),
+        0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4);
+    }
+
+    70% {
+      color: hsl(230, 80%, 90%);
+      text-shadow:
+        0 0 1em hsla(320, 100%, 50%, 0.5),
+        0 0 0.125em hsla(320, 100%, 60%, 0.5),
+        0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+        -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+    }
+
+    100% {
+      color: hsl(230, 40%, 80%);
+      text-shadow:
+        0 0 1em hsla(320, 100%, 50%, 0.2),
+        0 0 0.125em hsla(320, 100%, 60%, 0.3),
+        1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+        -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+    }
+
+  }
+
+  h1 {
+    margin: auto;
+    font-size: 3.5rem;
+    font-weight: 300;
+    animation: lights 5s 750ms linear infinite;
+  }
+  .navbar{
+    background-color: rgba(0, 0, 0, 0.077);
+  }
+.sticky{
+  top: 0;
+  width: 100%;
+  margin-bottom: 75px;
 }
