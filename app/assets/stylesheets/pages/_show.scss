@@ -1,0 +1,32 @@
+.background-show {
+  height: 100vh;
+  background: linear-gradient(-75deg, #EE8652, #3CE73C);
+  background-size: 400% 400%;
+  animation: gradient 30s ease infinite;
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+};
+
+.fa-back {
+  color: black;
+}
+.fa-back:hover {
+  color: white;
+}
+
+.delete-button {
+  color: black;
+}
+
+.delete-button:hover {
+  color: white;
+}

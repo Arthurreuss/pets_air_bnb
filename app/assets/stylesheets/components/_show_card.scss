@@ -6,12 +6,69 @@
 
 .img_card {
   height: 450px;
-  width: 100%;
-  background-color: orangered;
-  border: 2px solid black;
-  border-radius: 10px;
+  width: 40%;
+  // background-color: orangered;
+
+  perspective: 500px;
+  // position: absolute;
 }
 
 .form_card {
   height: 300px;
+  width: 30%;
+  position: relative;
+}
+
+.content {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 4px solid white;
+  border-radius: 10px;
+
+  transition: transform 0.8s ease 0.3s;
+  transform-style: preserve-3d;
+}
+
+.img_card:hover .content {
+  cursor: pointer;
+  transform: rotateY( 180deg ) ;
+  transition: transform 0.5s;
+}
+
+.front,
+.back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  color: #03446A;
+  text-align: center;
+  font-size: 18px;
+  // border-radius: 5px;
+  backface-visibility: hidden;
+}
+
+.back {
+  // background: white;
+  color: black;
+  transform: rotateY( 180deg );
+}
+
+.back_text {
+  background-color:  #13f013;
+  // border: 2px solid white;
+  // border-radius: 10px;
+  height: 100%;
+}
+
+.show_front {
+  width: 75%;
+  margin: auto;
+  height: 100%;
+}
+
+.show_text {
+  color: white;
+  font-size: 30px;
+  font-family: open-sans;
 }
