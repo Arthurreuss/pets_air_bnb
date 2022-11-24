@@ -6,8 +6,9 @@
         <div class="card border rounded-2 m-2 border-5 middle-box">
           <div class="border rounded-2 border-5 m-1 inside-box">
             <%= pet.name %>
-          <%= cl_image_tag(pet.photo.key,
-            width: 247, height: 321, crop: :fill) %>
+            <% if pet.photo.present? %>
+            <%= cl_image_tag pet.photo.key, width: 247, height: 321, crop: :fill %>
+            <% end %>
           </div>
         </div>
       <% end %>
