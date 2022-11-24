@@ -14,6 +14,7 @@
     </h2>
     <div id=<%= arr2[sum] %> class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
       <div class="accordion-body">
+          <p>Total Price: <%= b.total_price %></p>
           <% if b.status.present? %>
             <p>status:<%= b.status %></p>
           <% else %>
