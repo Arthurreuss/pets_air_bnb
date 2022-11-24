@@ -2,6 +2,9 @@
   justify-content: space-between;
   background: rgb(159, 157, 157);
   color: white;
+  position: fixed;
+  top: 0;
+  z-index: 1;
 }
 
 .navbar-lewagon .navbar-collapse {

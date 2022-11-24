@@ -100,6 +100,12 @@
   width: 100%;
 }
 
+.edit-delete{
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
 .filler {
   min-height: 100px;
 }
