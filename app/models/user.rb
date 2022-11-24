@@ -6,4 +6,12 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :pets, through: :bookings
   has_one_attached :photo
+
+  after_create :send_welcome_email
+
+  private
+
+  def send_welcome_email
+    UserMailer.with(user: self).welcome_email.deliver_now
+  end
 end

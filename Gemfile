@@ -10,13 +10,19 @@ gem "devise"
 
 gem 'bootstrap-datepicker-rails'
 
+gem 'dotenv-rails', groups: [:development, :test]
+
 gem 'jquery-rails'
+
+gem 'letter_opener', group: :development
 
 gem "cloudinary"
 
 gem "geocoder"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
+
+gem "dotenv-rails", groups: [:development, :test]
 
 # Use postgresql as the database for Active Record
 gem "pg", "~> 1.1"
