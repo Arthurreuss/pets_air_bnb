@@ -13,7 +13,7 @@
 }
 
 .img_card {
-  height: 450px;
+  height: 500px;
   width: 75%;
   perspective: 500px;
   align-self: center;
@@ -27,7 +27,6 @@
 .form_card {
   height: 350px;
   width: 75%;
-  // align-self: center;
   justify-self: center;
 }
 
@@ -66,13 +65,6 @@
   overflow-y: scroll;
 }
 
-// .back_text {
-
-//   // border: 2px solid white;
-//   // border-radius: 10px;
-
-// }
-
 .show_front {
   width: 75%;
   margin: auto;
@@ -82,7 +74,6 @@
 .show_text {
   color: white;
   font-size: 25px;
-  // font-family: open-sans;
 }
 
 .name {
@@ -93,4 +84,22 @@
 .species {
   font-size: 30px;
   font-weight: bold;
+}
+
+// .options {
+//   align-items: center;
+//   justify-content: space-between;
+//   height: 100px;
+//   padding: 0px 50px;
+//   color: rgba(0,0,0,0.3);
+// }
+.options-links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.filler {
+  min-height: 100px;
 }
