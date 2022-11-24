@@ -16,6 +16,8 @@ class BookingsController < ApplicationController
     @booking.total_price = @pet.price * (@booking.end_date - @booking.start_date)
 
     if @booking.save
+      mail = RestaurantMailer.with(booking: @booking).create_confirmation
+      mail.deliver_now
       redirect_to dashboard_path
     else
       render "pets/show", status: :unprocessable_entity

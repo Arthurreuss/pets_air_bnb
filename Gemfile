@@ -10,7 +10,11 @@ gem "devise"
 
 gem 'bootstrap-datepicker-rails'
 
+gem 'dotenv-rails', groups: [:development, :test]
+
 gem 'jquery-rails'
+
+gem 'letter_opener', group: :development
 
 gem "cloudinary"
 
