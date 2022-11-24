@@ -1,16 +1,19 @@
 <div class="background-index">
-<div class="btn"><%= link_to "Create new", new_pet_path %></div>
-  <div class="cards">
-    <% @pets.each do |pet| %>
-      <%= link_to pet_path(pet) do %>
-        <div class="card border rounded-2 m-2 border-5 middle-box">
-          <div class="border rounded-2 border-5 m-1 inside-box">
-            <%= pet.name %>
-          <%= cl_image_tag(pet.photo.key,
-            width: 247, height: 321, crop: :fill) %>
-          </div>
+<div style="height:30px;">
+</div>
+  <div class="btn btn-index"><%= link_to "Create new", new_pet_path %></div>
+    <div class="cards">
+      <% @pets.each do |pet| %>
+        <div class="card-box">
+          <%= link_to pet_path(pet) do %>
+            <div class="card middle-box">
+              <% if pet.photo.present? %>
+              <div class="inside-box" style="background-image: url('<%= cl_image_path pet.photo.key, crop: :fill %>')"></div>
+              <% end %>
+            </div>
+          <% end %>
         </div>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>

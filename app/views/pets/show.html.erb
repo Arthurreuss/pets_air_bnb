@@ -20,15 +20,17 @@
   <div class="show">
     <div class="img_card">
       <div class="content">
+        <% if @pet.photo.present? %>
         <div class="front text-center align-items-center border-0 rounded" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @pet.photo.key, crop: :pad %>')">
         </div>
-
+        <% end %>
         <div class=" back text-center m-auto">
             <h2 class="show_text name p-2 mt-4"><%= @pet.name %> </h2>
             <h3 class="show_text species p-2">SPECIES: <%= @pet.species %></h3>
             <p class="show_text p-2">With an age of: <%= @pet.age %></p>
             <p class="show_text p-2"><%= @pet.description %></p>
             <p class="show_text p-2 pt-4">Price per day: € <%= @pet.price %></p>
+          </div>
         </div>
       </div>
     </div>
