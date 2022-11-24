@@ -14,9 +14,9 @@
         <div id=<%= arr2[sum] %> class="accordion-collapse collapse show" aria-labelledby=<%= "headingOne"%>  data-bs-parent="#accordionExample">
           <% p.bookings.each do |b| %>
             <div class="accordion-body">
-            <p class="dropdown-item"><%= b.id %></p>
-            <p class="dropdown-item"><%= b.pet.species %></p>
-            <p class="dropdown-item"><%= b.status %></p>
+            <p >Booking ID: <%= b.id %></p>
+            <p>Total Price: <%= b.total_price %></p>
+            <p >Booking Status: <%= b.status %></p>
             <div><%= link_to 'Accept', accept_path(:booking_id => b.id), class: "dropdown-item" %></div>
             <div><%= link_to 'Decline', decline_path(:booking_id => b.id), class: "dropdown-item" %></div>
             </div>
