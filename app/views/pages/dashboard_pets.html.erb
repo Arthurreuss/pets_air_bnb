@@ -1,12 +1,17 @@
+<div class="background-dashboard">
+
 <% @pet %>
 <% @bookings.each do |booking|%>
   <% booking.each do |b| %>
   <div>
     <%= b.id %>
-    <%= link_to 'Accept', accept_path(:booking_id => b.id) %>
-    <%= link_to 'Decline', decline_path(:booking_id => b.id) %>
+    <div class="d-flex">
+      <div class="btn btn-primary btn-sm m-2 p-2"><%= link_to 'Accept', accept_path(:booking_id => b.id) %> </div>
+      <div class="btn btn-primary btn-sm m-2 p-2"><%= link_to 'Decline', decline_path(:booking_id => b.id) %> </div>
+  </div>
   </div>
   <% end %>
 <% end %>
 
 <%= link_to "Back to homepage", pets_path %>
+</div>

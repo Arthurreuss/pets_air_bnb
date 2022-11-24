@@ -48,16 +48,15 @@ text-decoration: none;
   display: flex;
   flex-direction: column;
   align-items: center;  text-align: center;
-  font-family: 'Amaranth', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 22px;
   font-weight: 400px;
   font-style: italic;
   text-transform: capitalize;
-  margin: 30px;
   padding: 3px 15px;
-  border-radius: 0;
+  border-radius: 15px;
   border: 2px solid rgb(255, 255, 255);
-  box-shadow: 4px 4px 0 rgba(255, 255, 255, 0.3), 8px 8px 0 rgba(255, 255, 255, 0.2);
+  box-shadow: 2px 2px 0 rgba(255, 255, 255, 0.3), 4px 4px 0 rgba(255, 255, 255, 0.2);
   z-index: 1;
   transition: all 0.3s ease 0.1s;
   width: fit-content;
@@ -113,7 +112,8 @@ text-decoration: none;
 @media only screen and (max-width: 767px){
   .btn{ margin-bottom: 20px; }
 }
-  .background-index {
+
+.background-index {
     background: linear-gradient(-75deg, #686a47, #278927, #07d9c1, #ff0088);
     background-size: 400% 400%;
     animation: gradient 30s ease infinite;
@@ -191,6 +191,4 @@ text-decoration: none;
   .sticky {
     top: 0;
     width: 100%;
-    // margin-bottom: 75px;
-    // background-color: rgba(0, 0, 0, 0.077);
   }
