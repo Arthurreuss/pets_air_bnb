@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
     @booking.total_price = @pet.price * (@booking.end_date - @booking.start_date)
 
     if @booking.save
-      mail = RestaurantMailer.with(booking: @booking).create_confirmation
+      mail = BookingMailer.with(booking: @booking).create_confirmation.deliver_now
       mail.deliver_now
       redirect_to dashboard_path
     else

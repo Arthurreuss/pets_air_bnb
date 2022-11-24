@@ -1,10 +1,9 @@
 class BookingMailer < ApplicationMailer
+  default from: "animalkingdom919@gmail.com"
+  layout "mailer"
+
   def create_confirmation
     @booking = params[:booking]
-
-    mail(
-      to:       @booking.user.email,
-      subject:  "Booking created!"
-    )
+    mail(to: @booking.email, subject: "Booking created!")
   end
 end
