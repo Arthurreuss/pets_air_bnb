@@ -7,10 +7,11 @@
   <div class='container d-flex justify-content-between'>
     <div class="img_card me-3">
       <div class="content">
-        <div class="front text-center align-items-center border-0 rounded" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @pet.photo.key, crop: :pad %>')">
+        <% if @pet.present? %>
+        <div class="front text-center align-items-center border-0 rounded" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @pet.photo.key, crop: :fit %>')">
           <%# <div class="show_front border-0 rounded" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('= cl_image_path @pet.photo.key, crop: :fit')"></div> %>
         </div>
-
+        <% end %>
         <div class=" back text-center align-items-center">
           <div class="back_text text-center align-items-center w-100 m-auto">
             <p class="show_text p-3"><%= @pet.name %> is a <%= @pet.species %></p>

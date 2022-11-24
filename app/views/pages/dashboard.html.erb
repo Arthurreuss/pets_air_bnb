@@ -1,10 +1,37 @@
 <% @user %>
-<% @bookings.each do |b| #of the user %>
-<div>
-  <%= b.id %>
-  <%= b.pet.name %>
-  <%= link_to "Delete Booking", booking_path(b), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
-  <%= link_to "Leave a review", new_booking_review_path(b) %>
+<% sum = 0 %>
+<% arr = ["#collapseOne", "#collapseTwo", "#collapseThree", "#collapseFour", "#collapseFive", "#collapseSix", "#collapseSeven", "#collapseEight"] %>
+<% arr2 = ["collapseOne", "collapseTwo", "collapseThree", "collapseFour", "collapseFive", "collapseSix", "collapseSeven", "collapseEight"] %>
+<div class="container">
+<div class="accordion" id="accordionExample">
+  <% @bookings.each do |b| #of the user %>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target=<%= arr[sum] %> aria-expanded="true" aria-controls=<%= arr2[sum] %>>
+        <div><p>Booking Number: <%= b.id %> </p></div>
+        <div><p>, The Pet you booked: <%= b.pet.name %></p></div>
+      </button>
+    </h2>
+    <div id=<%= arr2[sum] %> class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+          <p>Total Price: <%= b.total_price %></p>
+          <% if b.status.present? %>
+            <p>status:<%= b.status %></p>
+          <% else %>
+            <% if b.status == false %>
+            <p>status:<%= b.status %></p>
+            <% else %>
+            <p>status: pending ...</p>
+            <% end %>
+          <% end %>
+          <p>From the: <%= b.start_date %> to the <%= b.end_date %></p>
+          <%= link_to "Delete Booking", booking_path(b), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+          <%= link_to "Leave a review", new_booking_review_path(b) %>
+      </div>
+    </div>
+  </div>
+  <% sum += 1 %>
+      <% end %>
 </div>
-<% end %>
+</div>
 <%= link_to "Back to homepage", pets_path %>

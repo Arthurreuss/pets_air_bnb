@@ -1,12 +1,32 @@
-<% @pet %>
-<% @bookings.each do |booking|%>
-  <% booking.each do |b| %>
-  <div>
-    <%= b.id %>
-    <%= link_to 'Accept', accept_path(:booking_id => b.id) %>
-    <%= link_to 'Decline', decline_path(:booking_id => b.id) %>
-  </div>
+<% sum = 0 %>
+<% arr = ["#collapseOne", "#collapseTwo", "#collapseThree", "#collapseFour", "#collapseFive", "#collapseSix", "#collapseSeven", "#collapseEight",] %>
+<% arr2 = ["collapseOne", "collapseTwo", "collapseThree", "collapseFour", "collapseFive", "collapseSix", "collapseSeven", "collapseEight",] %>
+<%if @pets.present? %>
+  <div class="container">
+    <% @pets.uniq.each do |p| %>
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id=<%= "headingOne"%> >
+          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target=<%= arr[sum] %> aria-expanded="true" aria-controls=<%= arr2[sum] %>>
+            <p><%= p.name %></p>
+          </button>
+        </h2>
+        <div id=<%= arr2[sum] %> class="accordion-collapse collapse show" aria-labelledby=<%= "headingOne"%>  data-bs-parent="#accordionExample">
+          <% p.bookings.each do |b| %>
+            <div class="accordion-body">
+            <p >Booking ID: <%= b.id %></p>
+            <p>Total Price: <%= b.total_price %></p>
+            <p >Booking Status: <%= b.status %></p>
+            <div><%= link_to 'Accept', accept_path(:booking_id => b.id), class: "dropdown-item" %></div>
+            <div><%= link_to 'Decline', decline_path(:booking_id => b.id), class: "dropdown-item" %></div>
+            </div>
+          <% end %>
+          <% sum += 1 %>
+        </div>
+      </div>
+    </div>
   <% end %>
 <% end %>
+</div>
 
 <%= link_to "Back to homepage", pets_path %>
