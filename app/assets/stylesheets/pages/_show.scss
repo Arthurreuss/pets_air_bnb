@@ -1,6 +1,6 @@
 .background-show {
-  min-height: 100vh;
-  background: linear-gradient(-75deg, #EE8652, #bdcd2d);
+  height: 100vh;
+  background: linear-gradient(-75deg, #EE8652, #3CE73C);
   background-size: 400% 400%;
   animation: gradient 30s ease infinite;
 }
@@ -15,3 +15,18 @@
     background-position: 0% 50%;
   }
 };
+
+.fa-back {
+  color: black;
+}
+.fa-back:hover {
+  color: white;
+}
+
+.delete-button {
+  color: black;
+}
+
+.delete-button:hover {
+  color: white;
+}
