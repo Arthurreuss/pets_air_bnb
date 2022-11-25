@@ -1,8 +1,9 @@
 .background-show {
-  height: 100vh;
-  background: linear-gradient(-75deg, #EE8652, #3CE73C);
+  background: linear-gradient(-75deg, #000000, #2a383f, #000000, #2a383f);
   background-size: 400% 400%;
-  animation: gradient 30s ease infinite;
+  animation: gradient 50s ease infinite;
+  min-height: 150vh;
+  margin-top: 55px;
 }
 @keyframes gradient {
   0% {
@@ -16,17 +17,24 @@
   }
 };
 
-.fa-back {
-  color: black;
-}
-.fa-back:hover {
+.fa{
   color: white;
+  &:hover{
+    color: rgb(42, 100, 130);
+  }
 }
 
-.delete-button {
-  color: black;
-}
+// .fa-back {
+//   color: black;
+// }
+// .fa-back:hover {
+//   color: white;
+// }
 
-.delete-button:hover {
-  color: white;
-}
+// .delete-button {
+//   color: black;
+// }
+
+// .delete-button:hover {
+//   color: white;
+// }

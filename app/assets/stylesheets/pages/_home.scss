@@ -59,6 +59,7 @@
   font-family: 'Amaranth', sans-serif;
   font-size: 22px;
   font-style: italic;
+  color: white;
   text-transform: capitalize;
   padding: 3px 15px;
   border-radius: 10px;
@@ -70,7 +71,7 @@
 }
 
 .btn:hover{
-  color: rgb(255, 199, 199);
+  color: rgb(42, 100, 130);
   box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.4);
   border-color: rgb(37, 0, 100);
   transform:scale(1.1);
@@ -130,8 +131,8 @@
 .background-index {
   background: linear-gradient(-75deg, #000000, #2a383f, #000000, #2a383f);
   background-size: 400% 400%;
-  animation: gradient 30s ease infinite;
-  min-height: 100vh;
+  animation: gradient 50s ease infinite;
+  min-height: 150vh;
 }
 
   @keyframes gradient {
