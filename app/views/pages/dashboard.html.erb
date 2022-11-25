@@ -7,20 +7,23 @@
         <i class="fa fa-back fa-solid fa-left-long fa-2xl m-4 p-3"></i>
       <% end %>
 <div class="container">
-  <div class="accordion" id="accordionExample">
-    <% @bookings.each do |b| #of the user %>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingTwo">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target=<%= arr[sum] %> aria-expanded="true" aria-controls=<%= arr2[sum] %>>
-          <div><p>Booking Number: <%= b.id %> </p></div>
-          <div><p>, The Pet you booked: <%= b.pet.name %></p></div>
-        </button>
-      </h2>
-      <div id=<%= arr2[sum] %> class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-            <p>Total Price: <%= b.total_price %></p>
-            <% if b.status.present? %>
-              <p>status:<%= b.status %></p>
+<div class="accordion" id="accordionExample">
+  <% @bookings.order(:id).each do |b| #of the user %>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target=<%= arr[sum] %> aria-expanded="true" aria-controls=<%= arr2[sum] %>>
+        <div><p>Booking Number: <%= b.id %> </p></div>
+        <div><p>, The Pet you booked: <%= b.pet.name %></p></div>
+      </button>
+    </h2>
+    <div id=<%= arr2[sum] %> class="accordion-collapse collapse show" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+          <p>Total Price: <%= b.total_price %></p>
+          <% if b.status.present? %>
+            <p>status:<%= b.status %></p>
+          <% else %>
+            <% if b.status == false %>
+            <p>status:<%= b.status %></p>
             <% else %>
               <% if b.status == false %>
               <p>status:<%= b.status %></p>

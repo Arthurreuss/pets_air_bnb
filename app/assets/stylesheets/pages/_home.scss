@@ -96,6 +96,7 @@
   font-family: 'Amaranth', sans-serif;
   font-size: 22px;
   font-style: italic;
+  color: white;
   text-transform: capitalize;
   padding: 3px 15px;
   border-radius: 10px;
@@ -175,6 +176,7 @@
     animation: gradient 30s ease infinite;
     min-height: 100vh;
   }
+
 
   @keyframes gradient {
     0% {

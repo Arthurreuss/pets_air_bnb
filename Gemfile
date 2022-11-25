@@ -19,6 +19,8 @@ gem 'letter_opener', group: :development
 gem "cloudinary"
 
 gem "geocoder"
+
+gem "pundit"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
