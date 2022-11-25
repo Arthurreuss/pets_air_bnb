@@ -19,7 +19,7 @@
     <div class="img_card">
       <div class="content">
         <% if @pet.photo.present? %>
-        <div class="front text-center align-items-center border-0 rounded" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @pet.photo.key, crop: :fit %>')">
+        <div class="front text-center align-items-center border-0 rounded" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path @pet.photo.key, crop: :limit %>);background-repeat:no-repeat;">
           <%# <div class="show_front border-0 rounded" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('= cl_image_path @pet.photo.key, crop: :fit')"></div> %>
         </div>
         <% end %>
