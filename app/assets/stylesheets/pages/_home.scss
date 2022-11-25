@@ -7,6 +7,13 @@
   padding-top: 50px;
   padding-bottom: 50px;
 }
+.big-title{
+  font-size: 180px;
+  text-align: center;
+}
+.btn-home{
+  margin-left: 40%;
+}
 
 .middle-box {
   width: 305px;
@@ -237,9 +244,9 @@ h1 {
 
 .navbar {
   background: rgb(172,227,255);
-  background: radial-gradient(circle, rgba(172,227,255,1) 0%, rgba(0,0,0,1) 100%);
+  background: radial-gradient(circle, #929292 0%, rgb(0, 66, 67) 100%);
   width: 100%;
 }
 .nav-item a{
-  color: white;
+  color: rgb(0, 0, 0);
 }
