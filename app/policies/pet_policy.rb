@@ -8,6 +8,10 @@ class PetPolicy < ApplicationPolicy
     true
   end
 
+  def new?
+    true
+  end
+
   def create?
     true
   end
@@ -17,17 +21,11 @@ class PetPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    true
   end
-
-
-  def new?
-    create?
-  end
-
 
   def destroy?
-    record.user == user
+    true
   end
 
   class Scope < Scope

@@ -16,9 +16,12 @@
             <div class="accordion-body border">
             <p >Booking ID: <%= b.id %></p>
             <p>Total Price: <%= b.total_price %></p>
-            <p >Booking Status: <%= b.status %></p>
-            <div><%= link_to 'Accept', accept_path(:booking_id => b.id), class: "dropdown-item" %></div>
-            <div><%= link_to 'Decline', decline_path(:booking_id => b.id), class: "dropdown-item" %></div>
+            <% if b.status == true || b.status == false %>
+              <p >Booking Status: <%= b.status %></p>
+            <% else %>
+              <div><%= link_to 'Accept', accept_path(:booking_id => b.id), class: "dropdown-item" %></div>
+              <div><%= link_to 'Decline', decline_path(:booking_id => b.id), class: "dropdown-item" %></div>
+            <% end %>
             </div>
           <% end %>
           <% sum += 1 %>
