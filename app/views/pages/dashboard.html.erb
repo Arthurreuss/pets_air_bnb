@@ -1,7 +1,11 @@
+<div class="background-dashboard">
 <% @user %>
 <% sum = 0 %>
 <% arr = ["#collapseOne", "#collapseTwo", "#collapseThree", "#collapseFour", "#collapseFive", "#collapseSix", "#collapseSeven", "#collapseEight"] %>
 <% arr2 = ["collapseOne", "collapseTwo", "collapseThree", "collapseFour", "collapseFive", "collapseSix", "collapseSeven", "collapseEight"] %>
+<%= link_to pets_path do %>
+        <i class="fa fa-back fa-solid fa-left-long fa-2xl m-4 p-3"></i>
+      <% end %>
 <div class="container">
 <div class="accordion" id="accordionExample">
   <% @bookings.order(:id).each do |b| #of the user %>
@@ -21,20 +25,30 @@
             <% if b.status == false %>
             <p>status:<%= b.status %></p>
             <% else %>
-            <p>status: pending ...</p>
+              <% if b.status == false %>
+              <p>status:<%= b.status %></p>
+              <% else %>
+              <p>status: pending ...</p>
+              <% end %>
             <% end %>
+
           <% end %>
           <p>From the: <%= b.start_date %> to the <%= b.end_date %></p>
+          <div class="link-in-line">
           <% if policy(b).destroy? %>
-          <%= link_to "Delete Booking", booking_path(b), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+            <%= link_to booking_path(b), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+              <div class="m-4 p-3 delete-button"><i class="fa fa-solid fa-trash fa-xl"></i></div>
+            <% end %>
           <% else %>
-          <%= link_to "Leave a review", new_booking_review_path(b) %>
+            <%= link_to "Leave a review", new_booking_review_path(b), class: "btn" %>
           <% end %>
+           </div>
+        </div>
       </div>
     </div>
-  </div>
-  <% sum += 1 %>
+      <% sum += 1 %>
       <% end %>
+  </div>
 </div>
+
 </div>
-<%= link_to "Back to homepage", pets_path %>
