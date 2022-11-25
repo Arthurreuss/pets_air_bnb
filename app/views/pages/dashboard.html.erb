@@ -41,9 +41,7 @@
             <% end %>
             <%= link_to "Leave a review",new_booking_review_path(b), class: "btn btn-dashboard" %>
             </div>
-            <% end %>
               <div class="m-4 p-3 delete-button"><i class="fa fa-solid fa-trash fa-xl"></i></div>
-            <% end %>
           <% else %>
             <%= link_to "Leave a review", new_booking_review_path(b), class: "btn btn-dashboard" %>
           <% end %>
@@ -52,7 +50,7 @@
       </div>
       </div>
       <% sum += 1 %>
-            <% end %>
+      <% end %>
     </div>
   </div>
 </div>
