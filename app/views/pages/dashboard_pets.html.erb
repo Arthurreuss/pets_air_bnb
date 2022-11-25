@@ -8,16 +8,16 @@
 <%if @pets.present? %>
   <div class="container">
     <% @pets.order(:name).uniq.each do |p| %>
-    <div class="accordion accordion-flush" id="accordionFlushExample">
+    <div class="accordion accordion-flush" id="accordionFlushExample" >
       <div class="accordion-item">
         <h2 class="accordion-header" id=<%= "headingOne"%> >
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target=<%= arr[sum] %> aria-expanded="true" aria-controls=<%= arr2[sum] %>>
+          <button class="accordion-button" style="color: white;" type="button" data-bs-toggle="collapse" data-bs-target=<%= arr[sum] %> aria-expanded="true" aria-controls=<%= arr2[sum] %>>
             <p><%= p.name %></p>
           </button>
         </h2>
         <div id=<%= arr2[sum] %> class="accordion-collapse collapse show" aria-labelledby=<%= "headingOne"%>  data-bs-parent="#accordionExample">
           <% p.bookings.order(:id).each do |b| %>
-            <div class="accordion-body border">
+            <div class="accordion-body border"  style="margin: auto; color: white;">
             <p >Booking ID: <%= b.id %></p>
             <p>Total Price: <%= b.total_price %></p>
             <% if b.status == true || b.status == false %>
