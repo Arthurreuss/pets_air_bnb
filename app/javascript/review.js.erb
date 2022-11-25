@@ -1,6 +1,0 @@
-function display_review() {
-  const review_box = document.getElementById("reviews");
-  let reviews = <%= @pet.reviews %>
-
-  review_box.classlist.add("review-display-border") if (reviews)
-}
