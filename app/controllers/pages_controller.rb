@@ -14,7 +14,7 @@ class PagesController < ApplicationController
   def dashboard_pets
     @user = current_user
     @pets = @user.pets
-    @bookings = @pets.map { |pet| pet.bookings }
+    # @bookings = @pets.map { |pet| pet.bookings }
   end
 
   def status_true
