@@ -2,7 +2,8 @@
   background: linear-gradient(-75deg, #1b1b1b, #a0a0a0, #1c1c1c, #c8c8c8);
   background-size: 400% 400%;
   animation: gradient 30s ease infinite;
-  min-height: 100vh;
+  min-height: 150vh;
+  margin-top: 55px;
 }
 
 @keyframes gradient {
@@ -143,4 +144,8 @@
 .link-in-line{
   display: flex;
 
+}
+.btn-dashboard{
+  height: 54px;
+  margin: 22px;
 }
