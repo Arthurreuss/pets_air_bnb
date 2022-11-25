@@ -31,14 +31,23 @@
               <p>status: pending ...</p>
               <% end %>
             <% end %>
-            <p>From the: <%= b.start_date %> to the <%= b.end_date %></p>
-            <div class="link-in-line">
+
+          <% end %>
+          <p>From the: <%= b.start_date %> to the <%= b.end_date %></p>
+          <div class="link-in-line">
+          <% if policy(b).destroy? %>
             <%= link_to booking_path(b), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
             <div class="m-4 p-3 delete-button"><i class="fa fa-solid fa-trash fa-xl"></i></div>
             <% end %>
             <%= link_to "Leave a review",new_booking_review_path(b), class: "btn btn-dashboard" %>
             </div>
             <% end %>
+              <div class="m-4 p-3 delete-button"><i class="fa fa-solid fa-trash fa-xl"></i></div>
+            <% end %>
+          <% else %>
+            <%= link_to "Leave a review", new_booking_review_path(b), class: "btn btn-dashboard" %>
+          <% end %>
+           </div>
         </div>
       </div>
       </div>
