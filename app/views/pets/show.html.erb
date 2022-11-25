@@ -5,13 +5,16 @@
         <i class="fa fa-back fa-solid fa-left-long fa-2xl m-4 p-3"></i>
       <% end %>
       <div class="edit-delete">
+        <%  if policy(@pet).edit? %>
         <%= link_to edit_pet_path(@pet) do %>
           <div class="ms-3 p-3 edit-button"><i class="fa fa-sharp fa-solid fa-pen fa-xl"></i></div>
+          <% end %>
         <% end %>
-
+        <% if policy(@pet).destroy? %> 
         <%= link_to @pet, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
           <div class="m-4 p-3 delete-button"><i class="fa fa-solid fa-trash fa-xl"></i></div>
-        <% end %>
+          <% end %>
+          <% end %>
       </div>
     </div>
 

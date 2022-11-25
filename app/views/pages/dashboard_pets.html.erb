@@ -1,24 +1,31 @@
+<div class="background-dashboard">
+<%= link_to pets_path do %>
+        <i class="fa fa-back fa-solid fa-left-long fa-2xl m-4 p-3"></i>
+      <% end %>
 <% sum = 0 %>
-<% arr = ["#collapseOne", "#collapseTwo", "#collapseThree", "#collapseFour", "#collapseFive", "#collapseSix", "#collapseSeven", "#collapseEight",] %>
-<% arr2 = ["collapseOne", "collapseTwo", "collapseThree", "collapseFour", "collapseFive", "collapseSix", "collapseSeven", "collapseEight",] %>
+<% arr = ["#flush-collapseOne", "#collapseTwo", "#collapseThree", "#collapseFour", "#collapseFive", "#collapseSix", "#collapseSeven", "#collapseEight",] %>
+<% arr2 = ["flush-collapseOne", "collapseTwo", "collapseThree", "collapseFour", "collapseFive", "collapseSix", "collapseSeven", "collapseEight",] %>
 <%if @pets.present? %>
   <div class="container">
-    <% @pets.uniq.each do |p| %>
-    <div class="accordion" id="accordionExample">
+    <% @pets.order(:name).uniq.each do |p| %>
+    <div class="accordion accordion-flush" id="accordionFlushExample" >
       <div class="accordion-item">
         <h2 class="accordion-header" id=<%= "headingOne"%> >
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target=<%= arr[sum] %> aria-expanded="true" aria-controls=<%= arr2[sum] %>>
+          <button class="accordion-button" style="color: white;" type="button" data-bs-toggle="collapse" data-bs-target=<%= arr[sum] %> aria-expanded="true" aria-controls=<%= arr2[sum] %>>
             <p><%= p.name %></p>
           </button>
         </h2>
         <div id=<%= arr2[sum] %> class="accordion-collapse collapse show" aria-labelledby=<%= "headingOne"%>  data-bs-parent="#accordionExample">
-          <% p.bookings.each do |b| %>
-            <div class="accordion-body">
+          <% p.bookings.order(:id).each do |b| %>
+            <div class="accordion-body border"  style="margin: auto; color: white;">
             <p >Booking ID: <%= b.id %></p>
             <p>Total Price: <%= b.total_price %></p>
-            <p >Booking Status: <%= b.status %></p>
-            <div><%= link_to 'Accept', accept_path(:booking_id => b.id), class: "dropdown-item" %></div>
-            <div><%= link_to 'Decline', decline_path(:booking_id => b.id), class: "dropdown-item" %></div>
+            <% if b.status == true || b.status == false %>
+              <p >Booking Status: <%= b.status %></p>
+            <% else %>
+              <div><%= link_to 'Accept', accept_path(:booking_id => b.id), class: "dropdown-item" %></div>
+              <div><%= link_to 'Decline', decline_path(:booking_id => b.id), class: "dropdown-item" %></div>
+            <% end %>
             </div>
           <% end %>
           <% sum += 1 %>
@@ -29,4 +36,4 @@
 <% end %>
 </div>
 
-<%= link_to "Back to homepage", pets_path %>
+</div>

@@ -11,6 +11,7 @@ class BookingsController < ApplicationController
     id = params[:pet_id]
     @pet = Pet.find(id)
     @booking = Booking.new(booking_params)
+    authorize @booking
     @booking.pet = @pet
     @booking.user = current_user
     @booking.total_price = @pet.price * (@booking.end_date - @booking.start_date)
@@ -26,6 +27,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking = Booking.find(params[:id])
+    authorize @booking
     @booking.destroy
 
     redirect_to dashboard_path

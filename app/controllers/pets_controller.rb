@@ -2,11 +2,13 @@ class PetsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
+    @pets = policy_scope(Pet)
     @pets = Pet.all
   end
 
   def show
     @pet = Pet.find(params[:id])
+    authorize @pet
     @booking = Booking.new
     @markers =
       [{
@@ -17,10 +19,12 @@ class PetsController < ApplicationController
 
   def new
     @pet = Pet.new
+    authorize @pet
   end
 
   def create
     @pet = Pet.new(pet_params)
+    authorize @pet
     respond_to do |format|
       if @pet.save
         format.html { redirect_to pet_path(@pet), notice: "Successfully created Pet" }
@@ -36,6 +40,7 @@ class PetsController < ApplicationController
 
   def update
     @pet = Pet.find(params[:id])
+    authorize @pet
     @pet.update(pet_params)
 
     redirect_to pet_path(@pet)
@@ -43,6 +48,7 @@ class PetsController < ApplicationController
 
   def destroy
     @pet = Pet.find(params[:id])
+    authorize @pet
     @pet.destroy
 
     redirect_to pets_path
