@@ -1,11 +1,20 @@
-<%= simple_form_for [@booking, @review] do |f| %>
+<div class="background-show">
+  <%= link_to pets_path do %>
+    <i class="fa fa-back fa-solid fa-left-long fa-2xl m-4 p-3"></i>
+  <% end %>
 
-  <div class="form-inputs">
-    <%= f.input :rating %>
-    <%= f.input :comment %>
-  </div>
+  <div class="container w-50">
+    <h3 class="form-title text-center">Leave a review</h3>
+    <%= simple_form_for [@booking, @review] do |f| %>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+    <div class="form-inputs p-3">
+      <%= f.input :rating, collection: [1, 2, 3, 4, 5], input_html: {data: {controller: "tom_select"}} %>
+      <%= f.input :comment %>
+    </div>
+
+    <div class="form-actions p-3">
+      <%= f.button :submit %>
+    </div>
+    <% end %>
   </div>
-<% end %>
+</div>

@@ -57,6 +57,11 @@
   backface-visibility: hidden;
 }
 
+.front {
+  background-size: cover;
+  background-position: center;
+}
+
 .back {
   background-color: black;
   transform: rotateY( 180deg );

@@ -5,7 +5,7 @@ class Pet < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   validates :price, :age, :size, presence: true
-  validates :species, inclusion: { in: ['Elves', 'Reptile', 'Giants', 'Goblins', 'Amphibian', 'Dinasour'] }
+  validates :species, inclusion: { in: ['Elves', 'Reptile', 'Giants', 'Goblins', 'Amphibian', 'Dinosaur'] }
   # validates :size, inclusion: { in: ['Atom', 'Pee', 'Football', 'House', 'Country', 'Earth'] }
   validates :address, presence: true
   validates :photo, presence: true

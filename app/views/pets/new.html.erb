@@ -1,21 +1,28 @@
-<%= simple_form_for(@pet) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-    <%= f.input :name %>
-    <%= f.input :price %>
-    <%= f.input :age %>
-    <%= f.input :species, collection: ['Elves', 'Reptile', 'Giants', 'Goblins', 'Amphibian', 'Dinasour'], input_html: {data: {controller: "tom_select"}} %>
-    <%= f.input :size, collection: ['Atom', 'Pee', 'Football', 'House', 'Country', 'Earth'] , input_html: {data: {controller: "tom_select"}} %>
-    <%= f.input :description %>
-    <%= f.input :address,
-    input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
-    wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
-    %>
-    <%= f.input :photo, as: :file %>
+<div class="background-show">
+  <%= link_to pets_path do %>
+    <i class="fa fa-back fa-solid fa-left-long fa-2xl m-4 p-3"></i>
+  <% end %>
 
-    <%= f.submit %>
-<% end %>
-<%# hello %>
+  <div class="container form-ts w-50 mb-2">
+    <h3 class="form-title text-center">Add new beast</h3>
+    <%= simple_form_for(@pet) do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+        <div class="form-new">
+          <%= f.input :name %>
+          <%= f.input :price %>
+          <%= f.input :age %>
+          <%= f.input :species, collection: ['Elves', 'Reptile', 'Giants', 'Goblins', 'Amphibian', 'Dinosaur'], input_html: {data: {controller: "tom_select"}} %>
+          <%= f.input :size, collection: ['Atom', 'Pee', 'Football', 'House', 'Country', 'Earth'] , input_html: {data: {controller: "tom_select"}} %>
+          <%= f.input :description %>
+          <%= f.input :address,
+          input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
+          wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+          %>
+          <%= f.input :photo, as: :file %>
+        </div>
 
-
-<%= link_to "Back to pets", pets_path %>
+        <%= f.submit %>
+    <% end %>
+  </div>
+</div>
