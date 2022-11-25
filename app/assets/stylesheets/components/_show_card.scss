@@ -1,4 +1,4 @@
-.show {
+.grid-show {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 30px;
@@ -22,10 +22,11 @@
 
 .form-inputs{
   font-size: 25px;
+  color: white;
 }
 
 .form_card {
-  height: 350px;
+  height: 400px;
   width: 75%;
   justify-self: center;
 }
@@ -100,7 +101,7 @@
   width: 100%;
 }
 
-.edit-delete{
+.edit-delete {
   display: flex;
   align-items: center;
   justify-content: end;

@@ -4,8 +4,8 @@
     <%= f.input :name %>
     <%= f.input :price %>
     <%= f.input :age %>
-    <%= f.input :species, collection: ['Mammal', 'Reptile', 'Bird', 'Fish', 'Amphibian', 'Insect'], input_html: {data: {controller: "tom_select"}} %>
-    <%= f.input :size %>
+    <%= f.input :species, collection: ['Elves', 'Reptile', 'Giants', 'Goblins', 'Amphibian', 'Dinasour'], input_html: {data: {controller: "tom_select"}} %>
+    <%= f.input :size, collection: ['Atom', 'Pee', 'Football', 'House', 'Country', 'Earth'] , input_html: {data: {controller: "tom_select"}} %>
     <%= f.input :description %>
     <%= f.input :address,
     input_html: {data: {address_autocomplete_target: "address"}, class: "d-none"},
