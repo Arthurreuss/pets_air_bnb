@@ -1,16 +1,18 @@
-<%= simple_form_for(@pet) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-    <%= f.input :name %>
-    <%= f.input :price %>
-    <%= f.input :age %>
-    <%= f.input :species %>
-    <%= f.input :size %>
-    <%= f.input :description %>
-    <%= f.input :address %>
-    <%= f.input :photo, as: :file %>
+<div class="background-show">
+  <%= simple_form_for(@pet) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+      <%= f.input :name %>
+      <%= f.input :price %>
+      <%= f.input :age %>
+      <%= f.input :species %>
+      <%= f.input :size %>
+      <%= f.input :description %>
+      <%= f.input :address %>
+      <%= f.input :photo, as: :file %>
 
-    <%= f.submit %>
-<% end %>
+      <%= f.submit %>
+  <% end %>
 
-<%= link_to "Back to pet", pet_path(@pet) %>
+  <%= link_to "Back to pet", pet_path(@pet) %>
+</div>

@@ -16,9 +16,10 @@
 
   <body>
     <%= render "shared/navbar" unless current_page?(root_path)%>
+    <div style="height: 51px"></div>
     <%= yield %>
-<%= render "shared/footer" unless current_page?(root_path)%>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    <%= render "shared/footer" unless current_page?(root_path)%>
+      <%# <p class="notice"><%#= notice %>
+      <%# <p class="alert">= alert %>
   </body>
 </html>
